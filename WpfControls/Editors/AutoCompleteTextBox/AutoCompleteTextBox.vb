@@ -211,7 +211,7 @@ Public Class AutoCompleteTextBox
         If Editor IsNot Nothing Then
             AddHandler Editor.TextChanged, AddressOf OnEditroTextChanged
             AddHandler Editor.PreviewKeyDown, AddressOf OnEditorKeyDown
-            AddHandler Editor.LostFocus, AddressOf OnEditorLostFocus
+            'AddHandler Editor.LostFocus, AddressOf OnEditorLostFocus
         End If
         If Popup IsNot Nothing Then
             Popup.StaysOpen = False
@@ -297,6 +297,7 @@ Public Class AutoCompleteTextBox
         Editor.Text = GetDisplayText(ItemsSelector.SelectedItem)
         _isUpdatingText = False
         IsDropDownOpen = False
+		Editor.Focus()
     End Sub
 
     Private Sub OnSelectionAdapterSelectionChanged()
